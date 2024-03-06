@@ -107,7 +107,7 @@ extension IntroViewController {
             previousViewController.dismiss(animated: false, completion: nil)
         }
 
-        let emptyViewController = UIViewController()
-        window.rootViewController = emptyViewController
+        let nextViewController = MapViewController()
+        window.rootViewController = nextViewController
     }
 }
