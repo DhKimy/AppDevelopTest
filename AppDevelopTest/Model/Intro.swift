@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Intro: Codable {
+
+    var sec: String
+    var intropage: String
+    var phoneno: String
+    var datetime: String
+}

@@ -7,10 +7,13 @@
 
 import UIKit
 
+let varPhoneno = "821045846200"
+var varGpsX = 0.0
+var varGpsY = 0.0
+var varGpsA = 0.0
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
