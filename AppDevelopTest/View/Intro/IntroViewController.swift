@@ -30,7 +30,6 @@ final class IntroViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         introView.webView.navigationDelegate = self
-        gpsManager.stopUpdatingLocation()
         getServerCheckPage()
         setView()
     }

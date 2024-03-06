@@ -21,14 +21,15 @@ final class GPSManager: NSObject, CLLocationManagerDelegate {
 
     // MARK: - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationManager.stopUpdatingLocation() // 한 번만 정보를 업데이트 하기 위함
         guard let location = locations.first else { return }
         varGpsX = location.coordinate.latitude
         varGpsY = location.coordinate.longitude
         varGpsA = location.verticalAccuracy
     }
 
-    func stopUpdatingLocation() {
-        locationManager.stopUpdatingLocation()
+    func startUpdatingLocation() {
+        locationManager.startUpdatingLocation() // 외부에서 이 메서드로 한 번 정보 갱신을 요청할 수 있음
     }
 }
 

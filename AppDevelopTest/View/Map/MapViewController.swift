@@ -11,12 +11,14 @@ import UIKit
 final class MapViewController: UIViewController {
 
     private var mainMapView = MapView()
+    private let gpsManager = GPSManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setView()
-        initialMapSetting()
+        addButtonTarget()
+        updateMap()
     }
 }
 
@@ -29,12 +31,16 @@ extension MapViewController {
             make.edges.equalToSuperview()
         }
     }
+
+    private func updateGPSValue() {
+        mainMapView.gpsValue.text = "\(varGpsX)\n\(varGpsY)\n\(varGpsA)"
+    }
 }
 
 // MARK: - mapView 기능 관련
 extension MapViewController {
 
-    private func initialMapSetting() {
+    private func updateMap() {
         setMarker()
         setMapScale()
     }
@@ -61,5 +67,37 @@ extension MapViewController {
             longitudinalMeters: regionRadius
         )
         mainMapView.mapView.setRegion(region, animated: true)
+    }
+}
+
+// MARK: - Button 관련 메서드
+extension MapViewController {
+
+    private func addButtonTarget() {
+        mainMapView.sendButton.addTarget(
+            self,
+            action: #selector(sendButtonTapped),
+            for: .touchUpInside
+        )
+
+        mainMapView.reportButton.addTarget(
+            self,
+            action: #selector(reportButtonTapped),
+            for: .touchUpInside
+        )
+    }
+
+    @objc private func sendButtonTapped() {
+        gpsManager.startUpdatingLocation()
+
+        // TODO: 텍스트, Map 업데이트
+        updateMap()
+        updateGPSValue()
+
+        // TODO: Post 구현
+    }
+
+    @objc private func reportButtonTapped() {
+        // TODO: 화면 이동 구현
     }
 }
