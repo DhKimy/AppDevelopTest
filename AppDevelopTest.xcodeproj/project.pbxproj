@@ -9,26 +9,38 @@
 /* Begin PBXBuildFile section */
 		C9F1BA0A2B9776D100C64891 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F1BA092B9776D100C64891 /* AppDelegate.swift */; };
 		C9F1BA0C2B9776D100C64891 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F1BA0B2B9776D100C64891 /* SceneDelegate.swift */; };
-		C9F1BA0E2B9776D100C64891 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F1BA0D2B9776D100C64891 /* ViewController.swift */; };
+		C9F1BA0E2B9776D100C64891 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F1BA0D2B9776D100C64891 /* IntroViewController.swift */; };
 		C9F1BA132B9776D200C64891 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F1BA122B9776D200C64891 /* Assets.xcassets */; };
 		C9F1BA162B9776D200C64891 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9F1BA142B9776D200C64891 /* LaunchScreen.storyboard */; };
 		C9F1BA212B977A1A00C64891 /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F1BA202B977A1A00C64891 /* Intro.swift */; };
-		C9F1BA232B977A3100C64891 /* MapInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F1BA222B977A3100C64891 /* MapInfo.swift */; };
+		C9F1BA232B977A3100C64891 /* GPSInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F1BA222B977A3100C64891 /* GPSInfo.swift */; };
 		C9F1BA252B977A7C00C64891 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F1BA242B977A7C00C64891 /* Utilities.swift */; };
 		C9F1BA282B977BF000C64891 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C9F1BA272B977BF000C64891 /* SnapKit */; };
-		C9F1BA2A2B977BF000C64891 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = C9F1BA292B977BF000C64891 /* SnapKit-Dynamic */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C9F1BA2E2B978A5700C64891 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C9F1BA062B9776D100C64891 /* AppDevelopTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppDevelopTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F1BA092B9776D100C64891 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9F1BA0B2B9776D100C64891 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C9F1BA0D2B9776D100C64891 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C9F1BA0D2B9776D100C64891 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		C9F1BA122B9776D200C64891 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9F1BA152B9776D200C64891 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9F1BA172B9776D200C64891 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9F1BA202B977A1A00C64891 /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
-		C9F1BA222B977A3100C64891 /* MapInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInfo.swift; sourceTree = "<group>"; };
+		C9F1BA222B977A3100C64891 /* GPSInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSInfo.swift; sourceTree = "<group>"; };
 		C9F1BA242B977A7C00C64891 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -38,7 +50,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9F1BA282B977BF000C64891 /* SnapKit in Frameworks */,
-				C9F1BA2A2B977BF000C64891 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,11 +75,11 @@
 		C9F1BA082B9776D100C64891 /* AppDevelopTest */ = {
 			isa = PBXGroup;
 			children = (
+				C9F1BA092B9776D100C64891 /* AppDelegate.swift */,
+				C9F1BA0B2B9776D100C64891 /* SceneDelegate.swift */,
 				C9F1BA1E2B97797100C64891 /* Model */,
 				C9F1BA1F2B9779BE00C64891 /* Util */,
 				C9F1BA1D2B97795900C64891 /* View */,
-				C9F1BA092B9776D100C64891 /* AppDelegate.swift */,
-				C9F1BA0B2B9776D100C64891 /* SceneDelegate.swift */,
 				C9F1BA122B9776D200C64891 /* Assets.xcassets */,
 				C9F1BA142B9776D200C64891 /* LaunchScreen.storyboard */,
 				C9F1BA172B9776D200C64891 /* Info.plist */,
@@ -79,7 +90,7 @@
 		C9F1BA1D2B97795900C64891 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C9F1BA0D2B9776D100C64891 /* ViewController.swift */,
+				C9F1BA2F2B989AA600C64891 /* Intro */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -88,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				C9F1BA202B977A1A00C64891 /* Intro.swift */,
-				C9F1BA222B977A3100C64891 /* MapInfo.swift */,
+				C9F1BA222B977A3100C64891 /* GPSInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,6 +112,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		C9F1BA2F2B989AA600C64891 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				C9F1BA0D2B9776D100C64891 /* IntroViewController.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,6 +130,7 @@
 				C9F1BA022B9776D100C64891 /* Sources */,
 				C9F1BA032B9776D100C64891 /* Frameworks */,
 				C9F1BA042B9776D100C64891 /* Resources */,
+				C9F1BA2E2B978A5700C64891 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -119,7 +139,6 @@
 			name = AppDevelopTest;
 			packageProductDependencies = (
 				C9F1BA272B977BF000C64891 /* SnapKit */,
-				C9F1BA292B977BF000C64891 /* SnapKit-Dynamic */,
 			);
 			productName = AppDevelopTest;
 			productReference = C9F1BA062B9776D100C64891 /* AppDevelopTest.app */;
@@ -179,11 +198,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9F1BA252B977A7C00C64891 /* Utilities.swift in Sources */,
-				C9F1BA0E2B9776D100C64891 /* ViewController.swift in Sources */,
+				C9F1BA0E2B9776D100C64891 /* IntroViewController.swift in Sources */,
 				C9F1BA0A2B9776D100C64891 /* AppDelegate.swift in Sources */,
 				C9F1BA212B977A1A00C64891 /* Intro.swift in Sources */,
 				C9F1BA0C2B9776D100C64891 /* SceneDelegate.swift in Sources */,
-				C9F1BA232B977A3100C64891 /* MapInfo.swift in Sources */,
+				C9F1BA232B977A3100C64891 /* GPSInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +349,7 @@
 				DEVELOPMENT_TEAM = UULN4L9KLP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppDevelopTest/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -358,6 +378,7 @@
 				DEVELOPMENT_TEAM = UULN4L9KLP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppDevelopTest/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보를 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -415,11 +436,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C9F1BA262B977BF000C64891 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		C9F1BA292B977BF000C64891 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C9F1BA262B977BF000C64891 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
