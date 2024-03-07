@@ -48,6 +48,8 @@ extension MapViewController {
 
     // 마커 세팅
     private func setMarker() {
+        mainMapView.mapView.removeOverlays(mainMapView.mapView.overlays)
+        
         let coordinate = CLLocationCoordinate2D(latitude: varGpsX, longitude: varGpsY)
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
