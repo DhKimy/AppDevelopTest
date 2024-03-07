@@ -5,6 +5,7 @@
 //  Created by 김동현 on 3/7/24.
 //
 
+import Combine
 import MapKit
 import UIKit
 
@@ -63,7 +64,7 @@ extension MapViewController {
         let regionRadius: CLLocationDistance = 250
         let region = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: varGpsX, longitude: varGpsY),
-            latitudinalMeters: regionRadius, 
+            latitudinalMeters: regionRadius,
             longitudinalMeters: regionRadius
         )
         mainMapView.mapView.setRegion(region, animated: true)
@@ -89,15 +90,66 @@ extension MapViewController {
 
     @objc private func sendButtonTapped() {
         gpsManager.startUpdatingLocation()
-
-        // TODO: 텍스트, Map 업데이트
         updateMap()
         updateGPSValue()
 
-        // TODO: Post 구현
+        postToServer(
+            gpsInfo: .init(
+                gpsX: String(varGpsX),
+                gpsY: String(varGpsY),
+                gpsA: String(varGpsA),
+                phoneno: varPhoneno
+            )
+        )
     }
 
     @objc private func reportButtonTapped() {
         // TODO: 화면 이동 구현
+    }
+}
+
+// MARK: - URLSession 관련 메서드
+extension MapViewController {
+
+    private func postToServer(gpsInfo: GPSInfo) {
+        // URL 설정
+        guard let url = URL(string: "https://www.insitestory.com/devTest/mdpert_serverSend.aspx") else {
+            print("Invalid URL")
+            return
+        }
+
+        // URLRequest 생성
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+
+        do {
+            let jsonData = try JSONEncoder().encode(gpsInfo)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            // URLSession을 통해 서버 요청
+            let task = URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
+                guard let data = data, error == nil else {
+                    print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                    return
+                }
+
+                // 응답 처리
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("Response status code: \(httpResponse.statusCode)")
+                }
+
+                // body 처리
+                do {
+                    let responseJSON = try JSONDecoder().decode(GPSInfo.self, from: data)
+                    print("Response JSON: \(responseJSON)")
+                } catch {
+                    print("Error decoding response: \(error)")
+                }
+            }
+            task.resume()
+        } catch {
+            print("Error encoding parameters: \(error)")
+            return
+        }
     }
 }

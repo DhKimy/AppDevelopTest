@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct GPSInfo {
+struct GPSInfo: Codable {
 
-    var gpsX: Double
-    var gpsY: Double
-    var gpsA: Double
+    var gpsX: String
+    var gpsY: String
+    var gpsA: String
+    var phoneno: String
+
+    enum CodingKeys: String, CodingKey {
+        case gpsX, gpsY, gpsA, phoneno
+    }
 }

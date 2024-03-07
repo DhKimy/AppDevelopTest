@@ -57,7 +57,6 @@ extension IntroViewController {
                     break
                 }
             } receiveValue: { [weak self] response in
-                print("response: ", response)
                 guard let self = self else { return }
                 self.showWebView(
                     introPageURL: URL(string: response.intropage) ?? URL(string: "https://www.insitestory.com")!
