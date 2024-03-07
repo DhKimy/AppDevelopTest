@@ -105,6 +105,8 @@ extension MapViewController {
 
     @objc private func reportButtonTapped() {
         // TODO: 화면 이동 구현
+        let viewController = ReportViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

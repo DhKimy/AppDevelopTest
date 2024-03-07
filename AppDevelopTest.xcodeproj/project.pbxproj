@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90671132B9A101F001DE1A0 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90671122B9A101F001DE1A0 /* ReportView.swift */; };
+		C90671152B9A102A001DE1A0 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90671142B9A102A001DE1A0 /* ReportViewController.swift */; };
 		C90E3DB62B98B3B500B28C20 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90E3DB52B98B3B500B28C20 /* IntroView.swift */; };
 		C90E3DB92B98C18700B28C20 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90E3DB82B98C18700B28C20 /* MapViewController.swift */; };
 		C90E3DBB2B98C19B00B28C20 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90E3DBA2B98C19B00B28C20 /* MapView.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C90671122B9A101F001DE1A0 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		C90671142B9A102A001DE1A0 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		C90E3DB52B98B3B500B28C20 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		C90E3DB82B98C18700B28C20 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C90E3DBA2B98C19B00B28C20 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -64,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C90671112B9A100C001DE1A0 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				C90671122B9A101F001DE1A0 /* ReportView.swift */,
+				C90671142B9A102A001DE1A0 /* ReportViewController.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
 		C90E3DB72B98C17200B28C20 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,7 @@
 			children = (
 				C9F1BA2F2B989AA600C64891 /* Intro */,
 				C90E3DB72B98C17200B28C20 /* Map */,
+				C90671112B9A100C001DE1A0 /* Report */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,8 +244,10 @@
 				C9F1BA0E2B9776D100C64891 /* IntroViewController.swift in Sources */,
 				C90E3DBE2B98CD6700B28C20 /* UIButton+Extension.swift in Sources */,
 				C9F1BA0A2B9776D100C64891 /* AppDelegate.swift in Sources */,
+				C90671132B9A101F001DE1A0 /* ReportView.swift in Sources */,
 				C9F1BA212B977A1A00C64891 /* Intro.swift in Sources */,
 				C9F1BA0C2B9776D100C64891 /* SceneDelegate.swift in Sources */,
+				C90671152B9A102A001DE1A0 /* ReportViewController.swift in Sources */,
 				C9F1BA232B977A3100C64891 /* GPSInfo.swift in Sources */,
 				C90E3DBB2B98C19B00B28C20 /* MapView.swift in Sources */,
 				C90E3DB92B98C18700B28C20 /* MapViewController.swift in Sources */,
