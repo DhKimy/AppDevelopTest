@@ -49,7 +49,8 @@ extension MapViewController {
     // 마커 세팅
     private func setMarker() {
         mainMapView.mapView.removeOverlays(mainMapView.mapView.overlays)
-        
+        mainMapView.mapView.removeAnnotations(mainMapView.mapView.annotations)
+
         let coordinate = CLLocationCoordinate2D(latitude: varGpsX, longitude: varGpsY)
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
@@ -116,6 +117,51 @@ extension MapViewController {
 extension MapViewController {
 
     private func postToServer(gpsInfo: GPSInfo) {
+        // URL 생성
+        var components = URLComponents(string: "https://www.insitestory.com/devTest/mdpert_serverSend.aspx")!
+        components.queryItems = [
+            URLQueryItem(name: "gpsx", value: gpsInfo.gpsX),
+            URLQueryItem(name: "gpsy", value: gpsInfo.gpsY),
+            URLQueryItem(name: "gpsa", value: gpsInfo.gpsA),
+            URLQueryItem(name: "phoneno", value: gpsInfo.phoneno)
+        ]
+
+        guard let url = components.url else {
+            print("Invalid URL")
+            return
+        }
+
+        // URLRequest 생성
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+
+        // URLSession을 통해 데이터 전송
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            // 오류 처리
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+
+            // 응답 처리
+            if let response = response as? HTTPURLResponse {
+                print("Response status code: \(response.statusCode)")
+            }
+
+            // 데이터 처리
+            if let data = data {
+                if let stringResponse = String(data: data, encoding: .utf8) {
+                    print("Response data: \(stringResponse)")
+                }
+            }
+        }
+
+        // 요청 시작
+        task.resume()
+    }
+    
+    /**
+    private func postToServer(gpsInfo: GPSInfo) {
         // URL 설정
         guard let url = URL(string: "https://www.insitestory.com/devTest/mdpert_serverSend.aspx") else {
             print("Invalid URL")
@@ -131,8 +177,8 @@ extension MapViewController {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
             // URLSession을 통해 서버 요청
-            let task = URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
-                guard let data = data, error == nil else {
+            let task = URLSession.shared.uploadTask(with: request, from: jsonData) { _, response, error in
+                guard error == nil else {
                     print("Error: \(error?.localizedDescription ?? "Unknown error")")
                     return
                 }
@@ -141,14 +187,6 @@ extension MapViewController {
                 if let httpResponse = response as? HTTPURLResponse {
                     print("Response status code: \(httpResponse.statusCode)")
                 }
-
-                // body 처리
-                do {
-                    let responseJSON = try JSONDecoder().decode(GPSInfo.self, from: data)
-                    print("Response JSON: \(responseJSON)")
-                } catch {
-                    print("Error decoding response: \(error)")
-                }
             }
             task.resume()
         } catch {
@@ -156,4 +194,5 @@ extension MapViewController {
             return
         }
     }
+    */
 }

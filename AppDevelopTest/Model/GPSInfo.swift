@@ -13,8 +13,4 @@ struct GPSInfo: Codable {
     var gpsY: String
     var gpsA: String
     var phoneno: String
-
-    enum CodingKeys: String, CodingKey {
-        case gpsX, gpsY, gpsA, phoneno
-    }
 }
